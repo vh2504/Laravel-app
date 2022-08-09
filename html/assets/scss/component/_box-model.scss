@@ -1,0 +1,52 @@
+.ptpx-30 {
+    padding-top: 30px !important;
+}
+
+.pb-20 {
+    padding-bottom: 1.25rem;
+}
+
+.pt-20 {
+    padding-top: 1.25rem;
+}
+
+.py-20 {
+    @extend .pb-20;
+    @extend .pt-20;
+}
+
+.pt-125 {
+    padding-top: 124px;
+}
+
+.pt-9 {
+    padding-top: 4rem;
+}
+
+.pb-10 {
+    padding-bottom: 6.25rem !important;
+}
+
+.pt-5-custom {
+    padding-top: 3.125rem !important;
+}
+
+.mb-2-custom {
+    margin-bottom: .75rem !important;
+}
+
+.mb-6 {
+    margin-bottom: 2.25rem !important;
+}
+
+.pt-6 {
+    padding-top: 2.25rem !important;
+}
+
+.mb-7 {
+    margin-bottom: 3.75rem !important;
+}
+
+.pb-7 {
+    padding-bottom: 3.75rem !important;
+}

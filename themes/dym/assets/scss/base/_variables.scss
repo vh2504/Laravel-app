@@ -1,0 +1,62 @@
+//
+// Variables
+//
+$pathImage: '../../dym/img/';
+$white:    #fff !default;
+$gray-100: #f6f9fc !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #8898aa !default;   // Line footer color
+$gray-700: #525f7f !default;   // Line p color
+$gray-800: #32325d !default;   // Line heading color
+$gray-900: #212529 !default;
+$gray-101: #CECECE !default;
+$gray-primary: #D9D9D9 !default;
+$black:    #000 !default;
+
+$blue:    #5e72e4 !default;
+$indigo:  #5603ad !default;
+$purple:  #8965e0 !default;
+$pink:    #FDDCDC !default;
+$red:     #F85757 !default;
+$orange:  #fb6340 !default;
+$yellow:  #FFF9C8 !default;
+$green:   #2dce89 !default;
+$teal:    #11cdef !default;
+$cyan:    #2bffc6 !default;
+
+$default:       #172b4d !default;
+$primary:       #017DA5 !default;
+$light-primary: #F8B5A9 !default;
+$primary-red:   #EC644D !default;
+$secondary:     #019CCE !default;
+$secondaryColor:     #019CCE !default;
+$secondaryColor-action: #017DA5 !default;
+$secondary-action: #017DA5 !default;
+$secondary-light: #E5F5FD !default;
+$success:       $green !default;
+$info:          $teal !default;
+$warning:       $orange !default;
+$danger:        $red !default;
+$light:         $gray-500 !default;
+$light-gray:    #E4E4E4 !default;
+$dark:          $gray-900 !default;
+$darker:        darken($gray-900, 15%) !default;
+$main:          #212C5D !default;
+$bg-header:     #FFEEE7 !default;
+$black-text:    #4E4E4E !default;
+$black-gray:    #8F8F8F !default;
+$black-line:    #F0F0F0 !default;
+$caution:       #FF6B6B !default;
+$gray-light:    #8F8F8F!default;
+$primaryColor:       #019CCE !default;
+$primaryColor-action: #017DA5 !default;
+$primary-red-action: #CF503A !default;
+$borderColor: #F0F0F0;
+$greenLight:   #D4FFCA !default;
+$lineGray: #D0D0D0 !default;
+$lineGrayLighter: #F2F2F2 !default;
+$bg-base:       #FFF9F7 !default;
+

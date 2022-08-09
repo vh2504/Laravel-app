@@ -1,0 +1,92 @@
+version: "3.7"
+
+networks:
+  dym_develop:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: 192.168.0.1
+
+services:
+  ############################################
+  ## reverse proxy [REQ]                     #
+  ############################################
+  reserved_proxy:
+    container_name: dym_reserved_proxy
+    build:
+      context: ./images/ubuntu-nginx
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./reserved_proxy/sites-enabled:/etc/nginx/conf.d
+      - ../storage/logs:/var/log/nginx
+    depends_on:
+      - dym_app
+#      - dym_template
+    networks:
+      default:
+      dym_develop:
+
+  ##########################################
+  ## Common                                #
+  ##########################################
+  mariadb:
+    container_name: dym_mariadb
+    image: mariadb:10.6
+    #restart: always
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    volumes:
+      - ./rds/mariadb:/docker-entrypoint-initdb.d
+      - data-mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  redis:
+    container_name: dym_redis
+    image: redis:latest
+    restart: always
+    ports:
+      - 6379:6379
+    volumes:
+      - data-redis:/var/lib/redis
+    networks:
+      default:
+      dym_develop:
+
+  ##########################################
+  ## Apps                                  #
+  ##########################################
+  dym_app:
+    container_name: dym_app
+    build:
+      context: ./images/ubuntu-laravel
+    depends_on:
+      - mariadb
+      - redis
+    volumes:
+      - ../:/var/www
+      - ./supervisord/dym_app:/etc/supervisor/conf.d
+    networks:
+      default:
+      dym_develop:
+
+  template:
+    container_name: dym_template
+    build:
+      context: ./images/ubuntu-template
+    volumes:
+      - ../html:/var/www
+      - ./supervisord/dym_template:/etc/supervisor/conf.d
+    networks:
+      default:
+      dym_develop:
+
+volumes:
+  data-mariadb:
+    driver: local
+  data-redis:
+    driver: local

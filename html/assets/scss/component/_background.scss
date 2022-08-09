@@ -1,0 +1,35 @@
+.bg-login {
+    background: url($pathImage + 'background/bg-login.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.bg-reset {
+    background: url($pathImage + 'background/bg-reset.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.bg-main {
+    // background-color: $bg-base;
+}
+
+.bg-confirm {
+    background-color: $secondary-light;
+}
+
+.bg-success-register {
+    background-color: $gray-primary;
+}
+
+.bg-header-register {
+    background: url($pathImage + 'background/bg-header-register.jpg') no-repeat;
+    background-size: 100%;
+}
+.bg-blue-light {
+    background-color: $blue-lighter;
+}
+.bg-white {
+    background-color: $white;
+}
+.bg-primary-light {
+    background-color: #FFF9F7;;
+}

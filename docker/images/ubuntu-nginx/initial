@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# redirect stdout and stderr to files
+
+##
+# Run a command or start pm2
+#
+if [ $# -gt 0 ];then
+    # If we passed a command, run it
+    echo "If we passed a command, run it"
+    exec "$@"
+else
+    # Start nginx
+    echo "Start nginx"
+    nginx -g "daemon off;"
+fi

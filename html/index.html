@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Template Frontend</title>
+    <link href="#favicon" rel="icon" type="image/png">
+
+    <!-- Styles -->
+    <link type="text/css" href="static/css/app.css" rel="stylesheet">
+    <link type="text/css" href="static/css/slick.css" rel="stylesheet">
+    <link type="text/css" href="static/css/slick-theme.css" rel="stylesheet">
+</head>
+
+<body class="position-relative bg-white">
+    <!-- ===============================================
+================= HEADER Content ===================
+================================================ -->
+<section id="header" class="header">
+    <header class="clearfix">
+    	<!-- Navbars -->
+		<nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-header py-0">
+			<div class="container-fluid">
+				<a class="navbar-brand py-2 py-sm-0" href="#">
+					<span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+					<button type="button" class="btn btn-sm">Logo</button>
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<i class="fa fa-bars fa-bars-m" aria-hidden="true"></i>
+				</button>
+				<div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+					<ul class="navbar-nav navbar-nav-member align-items-lg-center ml-lg-auto">
+						<li class="nav-item">
+							<a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+								<div class="position-relative">
+									<span class="nav-badge">1</span>
+									<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M14.2398 7.81508L12.2798 1.36174C11.8931 0.0950765 10.1065 0.0950765 9.73312 1.36174L7.75978 7.81508H1.82645C0.533115 7.81508 -0.000217766 9.48174 1.05312 10.2284L5.90645 13.6951L3.99978 19.8417C3.61312 21.0817 5.05312 22.0817 6.07978 21.2951L10.9998 17.5617L15.9198 21.3084C16.9464 22.0951 18.3864 21.0951 17.9998 19.8551L16.0931 13.7084L20.9464 10.2417C21.9998 9.48174 21.4664 7.82841 20.1731 7.82841H14.2398V7.81508Z" fill="#424242"/>
+									</svg>
+
+								</div>
+								<span class="nav-link-inner--text">気になる</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M11.9883 0.333374C5.54825 0.333374 0.333252 5.56004 0.333252 12C0.333252 18.44 5.54825 23.6667 11.9883 23.6667C18.4399 23.6667 23.6666 18.44 23.6666 12C23.6666 5.56004 18.4399 0.333374 11.9883 0.333374ZM11.9999 21.3334C6.84325 21.3334 2.66659 17.1567 2.66659 12C2.66659 6.84337 6.84325 2.66671 11.9999 2.66671C17.1566 2.66671 21.3333 6.84337 21.3333 12C21.3333 17.1567 17.1566 21.3334 11.9999 21.3334ZM12.5833 6.16671H10.8333V13.1667L16.9583 16.8417L17.8333 15.4067L12.5833 12.2917V6.16671Z" fill="#424242"/>
+								</svg>
+								<span class="nav-link-inner--text">閲覧履歴</span>
+							</a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+								<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M12 0.333374C5.56004 0.333374 0.333374 5.56004 0.333374 12C0.333374 18.44 5.56004 23.6667 12 23.6667C18.44 23.6667 23.6667 18.44 23.6667 12C23.6667 5.56004 18.44 0.333374 12 0.333374ZM12 3.83337C13.9367 3.83337 15.5 5.39671 15.5 7.33337C15.5 9.27004 13.9367 10.8334 12 10.8334C10.0634 10.8334 8.50004 9.27004 8.50004 7.33337C8.50004 5.39671 10.0634 3.83337 12 3.83337ZM12 20.4C9.08337 20.4 6.50504 18.9067 5.00004 16.6434C5.03504 14.3217 9.66671 13.05 12 13.05C14.3217 13.05 18.965 14.3217 19 16.6434C17.495 18.9067 14.9167 20.4 12 20.4Z" fill="white"/>
+								</svg>
+								<span class="nav-link-inner--text">会員登録する</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-icon" href="#" target="_blank">
+								<svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M9.58738 5.66274C9.14863 6.10149 9.14863 6.79899 9.58738 7.23774L11.7249 9.37524H1.37488C0.756128 9.37524 0.249878 9.88149 0.249878 10.5002C0.249878 11.119 0.756128 11.6252 1.37488 11.6252H11.7249L9.58738 13.7627C9.14863 14.2015 9.14863 14.899 9.58738 15.3377C10.0261 15.7765 10.7236 15.7765 11.1624 15.3377L15.2011 11.299C15.6399 10.8602 15.6399 10.1515 15.2011 9.71274L11.1624 5.66274C10.7236 5.22399 10.0261 5.22399 9.58738 5.66274ZM20.4999 18.3752H12.6249C12.0061 18.3752 11.4999 18.8815 11.4999 19.5002C11.4999 20.119 12.0061 20.6252 12.6249 20.6252H20.4999C21.7374 20.6252 22.7499 19.6127 22.7499 18.3752V2.62524C22.7499 1.38774 21.7374 0.375244 20.4999 0.375244H12.6249C12.0061 0.375244 11.4999 0.881494 11.4999 1.50024C11.4999 2.11899 12.0061 2.62524 12.6249 2.62524H20.4999V18.3752Z" fill="#019CCE"/>
+								</svg>
+								<span class="nav-link-inner--text nav-link-inner--login">ログインする</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- End Navbars -->
+    </header>
+
+</section>
+<!--/ HEADER Content  -->
+
+    <!-- Main content -->
+    <div class="main-content home">
+        <!-- Section featured -->
+        <div class="con-featured">
+            <div class="box-featured container d-flex justify-content-center align-items-center">
+                <div class="box-info">
+                    <h1><img src="./static/img/top/img-title-featured.png" alt="image featured" /></h1>
+                    <p class="logo-featured"><img src="./static/img/top/ic-logo.png" alt="DYMの就職・復職・転職サービスについて" /></p>
+                    <h3>医療介護従事経験者が運営する
+                        就職・復職・転職のための求人サイトです。</h3>
+                    <div class="box-btn d-flex justify-content-start">
+                        <button type="button" class="btn btn-primary mt-2 d-flex w-100 justify-content-center">
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.1504 1.85852C6.02123 1.85852 1.8584 6.02135 1.8584 11.1506C1.8584 16.2798 6.02123 20.4426 11.1504 20.4426C16.2796 20.4426 20.4425 16.2798 20.4425 11.1506C20.4425 6.02135 16.2796 1.85852 11.1504 1.85852ZM6.56946 16.986C6.96902 16.1497 9.40353 15.332 11.1504 15.332C12.8973 15.332 15.3411 16.1497 15.7314 16.986C14.4677 17.9895 12.8788 18.5842 11.1504 18.5842C9.42211 18.5842 7.83318 17.9895 6.56946 16.986ZM17.0602 15.6386C15.7314 14.0218 12.5071 13.4736 11.1504 13.4736C9.7938 13.4736 6.56946 14.0218 5.2407 15.6386C4.29291 14.3935 3.71681 12.8417 3.71681 11.1506C3.71681 7.05277 7.05265 3.71693 11.1504 3.71693C15.2482 3.71693 18.5841 7.05277 18.5841 11.1506C18.5841 12.8417 18.008 14.3935 17.0602 15.6386ZM11.1504 5.57533C9.34778 5.57533 7.89822 7.02489 7.89822 8.82755C7.89822 10.6302 9.34778 12.0798 11.1504 12.0798C12.9531 12.0798 14.4026 10.6302 14.4026 8.82755C14.4026 7.02489 12.9531 5.57533 11.1504 5.57533ZM11.1504 10.2214C10.3792 10.2214 9.75663 9.59879 9.75663 8.82755C9.75663 8.05631 10.3792 7.43374 11.1504 7.43374C11.9217 7.43374 12.5442 8.05631 12.5442 8.82755C12.5442 9.59879 11.9217 10.2214 11.1504 10.2214Z" fill="white"/>
+                            </svg>
+                            会員登録する
+                        </button>
+                        <button type="button" class="btn btn-default mt-2 d-flex w-100 justify-content-center">
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9.22123 4.50441L7.92035 5.8053L10.3363 8.22123H0.858398V10.0796H10.3363L7.92035 12.4956L9.22123 13.7964L13.8672 9.15043L9.22123 4.50441ZM17.5841 15.6549H10.1504V17.5133H17.5841C18.6062 17.5133 19.4425 16.677 19.4425 15.6549V2.646C19.4425 1.62388 18.6062 0.787598 17.5841 0.787598H10.1504V2.646H17.5841V15.6549Z" fill="#019CCE"/>
+                            </svg>
+                            ログインする
+                        </button>
+                    </div>
+                </div>
+                <div class="box-img">
+                    <img src="./static/img/top/img-featured.png" alt="image featured" />
+                    <p class="author">有吉弘行 さん</p>
+                </div>
+            </div>
+        </div>
+        <!-- End Section featured -->
+        <!-- Section top search -->
+        <div class="con-top-search">
+            <div class="box-top-search container d-flex justify-content-center">
+                <div class="box-cat">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="box-cat">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="box-cat">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="box-cat">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="box-cat large">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="box-cat large">
+                    <a href="">
+                        <img src="./static/img/top/img-thumb-cat1.png" alt="医科" />
+                        <span class="box-cat__title">医科</span>
+                        <span class="box-cat__count">123,456 件</span>
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.64524 9.67749L14.0002 15.0208L19.3552 9.67749L21.0002 11.3225L14.0002 18.3225L7.00024 11.3225L8.64524 9.67749Z" fill="#019CCE"/>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <!-- End Section top search -->
+        <!-- Section category -->
+        <div class="con-category">
+            <div class="box-category container">
+                <div class="header-cat" style="background:url(./static/img/background/bg-title.jpg)">
+                    <h3 class="st-title-cat">医科 <span>看護師/准看護師・薬剤師・看護助手・臨床検査技師　他13職種</span></h3>
+                    <h6 class="st-title-catsub">求人件数 <span>123,456</span> 件</h6>
+                </div>
+                <div class="box-cat-content">
+                    <div class="top-cat">
+                        <ul class="c-search-list">
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">医師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">看護助手</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">公認心理師/臨床心理士</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">管理栄養士/栄養士</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">薬剤師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">診療放射線技師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">医療ソーシャルワーカー</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">医療事務/受付</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">看護師/准看護師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">臨床検査技師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">登録販売者</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">助産師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">臨床工学技士</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">医療事務/受付</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">治験コーディネーター</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">保健師</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li class="c-search-list__item">
+                                <div class="c-grouped-link-box">
+                                    <a class="c-grouped-link-box__link" href="">
+                                        <span class="c-grouped-link-box__main">営業/管理部門/その他</span>
+                                        <span class="c-grouped-link-box__counter">123 件</span>
+                                        <div class="c-grouped-link-box__icon">
+                                            <div class="c-grouped-link-box__icon-inner">
+                                                <svg width="6" height="8" viewBox="0 0 6 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0.530029 7.06L3.58336 4L0.530029 0.94L1.47003 0L5.47003 4L1.47003 8L0.530029 7.06Z" fill="#019CCE"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="list-cat">
+                        <h4>医科の新着求人</h4>
+                        <div class="row">
+                            <div class="col-12 col-md-3 list-cat__item">
+                                <a class="group-link-box" href="">
+                                    <p class="group-link-box__img"><img src="./static/img/top/img-job.png" alt="image featured" /></p>
+                                    <h3 class="group-link-box__title">〇〇病院の歯科助手求人〇〇病院の歯科助手求人</h3>
+                                    <h4 class="group-link-box__badge"><span>NEW</span></h4>
+                                    <p class="group-link-box__desc">在宅医療を必要としている子ども（未就学児・学童児）への訪問支援など...</p>
+                                    <p class="group-link-box__map">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 8C5.175 8 4.5 7.325 4.5 6.5C4.5 5.675 5.175 5 6 5C6.825 5 7.5 5.675 7.5 6.5C7.5 7.325 6.825 8 6 8ZM10.5 6.65C10.5 3.9275 8.5125 2 6 2C3.4875 2 1.5 3.9275 1.5 6.65C1.5 8.405 2.9625 10.73 6 13.505C9.0375 10.73 10.5 8.405 10.5 6.65ZM6 0.5C9.15 0.5 12 2.915 12 6.65C12 9.14 9.9975 12.0875 6 15.5C2.0025 12.0875 0 9.14 0 6.65C0 2.915 2.85 0.5 6 0.5Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        東京都千代田区神田神保町…
+                                    </p>
+                                    <p class="group-link-box__price">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8 14C4.6925 14 2 11.3075 2 8C2 4.6925 4.6925 2 8 2C11.3075 2 14 4.6925 14 8C14 11.3075 11.3075 14 8 14ZM8.2325 7.355C6.905 7.0175 6.4775 6.65 6.4775 6.1025C6.4775 5.4725 7.07 5.03 8.0525 5.03C9.0875 5.03 9.4775 5.525 9.5075 6.26H10.79C10.7525 5.255 10.1375 4.3325 8.9225 4.0325V2.75L7.175 2.75L7.175 4.0175C6.0425 4.2575 5.135 4.9925 5.135 6.125C5.135 7.4675 6.2525 8.1425 7.88 8.5325C9.3425 8.8775 9.635 9.395 9.635 9.935C9.635 10.3325 9.3425 10.9775 8.06 10.9775C6.86 10.9775 6.3875 10.4375 6.32 9.7475L5.03 9.7475C5.105 11.0225 6.05 11.7425 7.175 11.975V13.25H8.93V11.9975C10.07 11.78 10.97 11.1275 10.9775 9.92C10.97 8.27 9.5525 7.7 8.2325 7.355Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        450万円～800万円 ...
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 list-cat__item">
+                                <a class="group-link-box" href="">
+                                    <p class="group-link-box__img"><img src="static/img/top/img-job.png" alt="image featured" /></p>
+                                    <h3 class="group-link-box__title">〇〇病院の歯科助手求人〇〇病院の歯科助手求人</h3>
+                                    <h4 class="group-link-box__badge"><span>NEW</span></h4>
+                                    <p class="group-link-box__desc">在宅医療を必要としている子ども（未就学児・学童児）への訪問支援など...</p>
+                                    <p class="group-link-box__map">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 8C5.175 8 4.5 7.325 4.5 6.5C4.5 5.675 5.175 5 6 5C6.825 5 7.5 5.675 7.5 6.5C7.5 7.325 6.825 8 6 8ZM10.5 6.65C10.5 3.9275 8.5125 2 6 2C3.4875 2 1.5 3.9275 1.5 6.65C1.5 8.405 2.9625 10.73 6 13.505C9.0375 10.73 10.5 8.405 10.5 6.65ZM6 0.5C9.15 0.5 12 2.915 12 6.65C12 9.14 9.9975 12.0875 6 15.5C2.0025 12.0875 0 9.14 0 6.65C0 2.915 2.85 0.5 6 0.5Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        東京都千代田区神田神保町…
+                                    </p>
+                                    <p class="group-link-box__price">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8 14C4.6925 14 2 11.3075 2 8C2 4.6925 4.6925 2 8 2C11.3075 2 14 4.6925 14 8C14 11.3075 11.3075 14 8 14ZM8.2325 7.355C6.905 7.0175 6.4775 6.65 6.4775 6.1025C6.4775 5.4725 7.07 5.03 8.0525 5.03C9.0875 5.03 9.4775 5.525 9.5075 6.26H10.79C10.7525 5.255 10.1375 4.3325 8.9225 4.0325V2.75L7.175 2.75L7.175 4.0175C6.0425 4.2575 5.135 4.9925 5.135 6.125C5.135 7.4675 6.2525 8.1425 7.88 8.5325C9.3425 8.8775 9.635 9.395 9.635 9.935C9.635 10.3325 9.3425 10.9775 8.06 10.9775C6.86 10.9775 6.3875 10.4375 6.32 9.7475L5.03 9.7475C5.105 11.0225 6.05 11.7425 7.175 11.975V13.25H8.93V11.9975C10.07 11.78 10.97 11.1275 10.9775 9.92C10.97 8.27 9.5525 7.7 8.2325 7.355Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        450万円～800万円 ...
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 list-cat__item">
+                                <a class="group-link-box" href="">
+                                    <p class="group-link-box__img"><img src="./static/img/top/img-job.png" alt="image featured" /></p>
+                                    <h3 class="group-link-box__title">〇〇病院の歯科助手求人〇〇病院の歯科助手求人</h3>
+                                    <h4 class="group-link-box__badge"><span>NEW</span></h4>
+                                    <p class="group-link-box__desc">在宅医療を必要としている子ども（未就学児・学童児）への訪問支援など...</p>
+                                    <p class="group-link-box__map">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 8C5.175 8 4.5 7.325 4.5 6.5C4.5 5.675 5.175 5 6 5C6.825 5 7.5 5.675 7.5 6.5C7.5 7.325 6.825 8 6 8ZM10.5 6.65C10.5 3.9275 8.5125 2 6 2C3.4875 2 1.5 3.9275 1.5 6.65C1.5 8.405 2.9625 10.73 6 13.505C9.0375 10.73 10.5 8.405 10.5 6.65ZM6 0.5C9.15 0.5 12 2.915 12 6.65C12 9.14 9.9975 12.0875 6 15.5C2.0025 12.0875 0 9.14 0 6.65C0 2.915 2.85 0.5 6 0.5Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        東京都千代田区神田神保町…
+                                    </p>
+                                    <p class="group-link-box__price">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8 14C4.6925 14 2 11.3075 2 8C2 4.6925 4.6925 2 8 2C11.3075 2 14 4.6925 14 8C14 11.3075 11.3075 14 8 14ZM8.2325 7.355C6.905 7.0175 6.4775 6.65 6.4775 6.1025C6.4775 5.4725 7.07 5.03 8.0525 5.03C9.0875 5.03 9.4775 5.525 9.5075 6.26H10.79C10.7525 5.255 10.1375 4.3325 8.9225 4.0325V2.75L7.175 2.75L7.175 4.0175C6.0425 4.2575 5.135 4.9925 5.135 6.125C5.135 7.4675 6.2525 8.1425 7.88 8.5325C9.3425 8.8775 9.635 9.395 9.635 9.935C9.635 10.3325 9.3425 10.9775 8.06 10.9775C6.86 10.9775 6.3875 10.4375 6.32 9.7475L5.03 9.7475C5.105 11.0225 6.05 11.7425 7.175 11.975V13.25H8.93V11.9975C10.07 11.78 10.97 11.1275 10.9775 9.92C10.97 8.27 9.5525 7.7 8.2325 7.355Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        450万円～800万円 ...
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-3 list-cat__item">
+                                <a class="group-link-box" href="">
+                                    <p class="group-link-box__img"><img src="./static/img/top/img-job.png" alt="image featured" /></p>
+                                    <h3 class="group-link-box__title">〇〇病院の歯科助手求人〇〇病院の歯科助手求人</h3>
+                                    <h4 class="group-link-box__badge"><span>NEW</span></h4>
+                                    <p class="group-link-box__desc">在宅医療を必要としている子ども（未就学児・学童児）への訪問支援など...</p>
+                                    <p class="group-link-box__map">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 8C5.175 8 4.5 7.325 4.5 6.5C4.5 5.675 5.175 5 6 5C6.825 5 7.5 5.675 7.5 6.5C7.5 7.325 6.825 8 6 8ZM10.5 6.65C10.5 3.9275 8.5125 2 6 2C3.4875 2 1.5 3.9275 1.5 6.65C1.5 8.405 2.9625 10.73 6 13.505C9.0375 10.73 10.5 8.405 10.5 6.65ZM6 0.5C9.15 0.5 12 2.915 12 6.65C12 9.14 9.9975 12.0875 6 15.5C2.0025 12.0875 0 9.14 0 6.65C0 2.915 2.85 0.5 6 0.5Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        東京都千代田区神田神保町…
+                                    </p>
+                                    <p class="group-link-box__price">
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 0.5C3.86 0.5 0.5 3.86 0.5 8C0.5 12.14 3.86 15.5 8 15.5C12.14 15.5 15.5 12.14 15.5 8C15.5 3.86 12.14 0.5 8 0.5ZM8 14C4.6925 14 2 11.3075 2 8C2 4.6925 4.6925 2 8 2C11.3075 2 14 4.6925 14 8C14 11.3075 11.3075 14 8 14ZM8.2325 7.355C6.905 7.0175 6.4775 6.65 6.4775 6.1025C6.4775 5.4725 7.07 5.03 8.0525 5.03C9.0875 5.03 9.4775 5.525 9.5075 6.26H10.79C10.7525 5.255 10.1375 4.3325 8.9225 4.0325V2.75L7.175 2.75L7.175 4.0175C6.0425 4.2575 5.135 4.9925 5.135 6.125C5.135 7.4675 6.2525 8.1425 7.88 8.5325C9.3425 8.8775 9.635 9.395 9.635 9.935C9.635 10.3325 9.3425 10.9775 8.06 10.9775C6.86 10.9775 6.3875 10.4375 6.32 9.7475L5.03 9.7475C5.105 11.0225 6.05 11.7425 7.175 11.975V13.25H8.93V11.9975C10.07 11.78 10.97 11.1275 10.9775 9.92C10.97 8.27 9.5525 7.7 8.2325 7.355Z" fill="#4E4E4E"/>
+                                        </svg>
+                                        450万円～800万円 ...
+                                    </p>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Section category -->
+
+        <!-- Section search featured -->
+        <div class="con-search-featured">
+            <div class="container">
+                <div class="box-search-featured">
+                    <h3 class="st-title-featured">
+                        <svg width="24" height="30" viewBox="0 0 24 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15C10.35 15 9 13.65 9 12C9 10.35 10.35 9 12 9C13.65 9 15 10.35 15 12C15 13.65 13.65 15 12 15ZM21 12.3C21 6.855 17.025 3 12 3C6.975 3 3 6.855 3 12.3C3 15.81 5.925 20.46 12 26.01C18.075 20.46 21 15.81 21 12.3ZM12 0C18.3 0 24 4.83 24 12.3C24 17.28 19.995 23.175 12 30C4.005 23.175 0 17.28 0 12.3C0 4.83 5.7 0 12 0Z" fill="#EC644D"/>
+                        </svg>
+                        注目職種を人気エリアから探す
+                    </h3>
+                    <div class="search-featured-list row">
+                        <div class="search-featured-list__item">
+                            <div class="search-feature__top">
+                                <img src="./static/img/top/img-cat1.png" alt="image featured" />
+                                <h4>看護師/准看護師</h4>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-featured-list__item">
+                            <div class="search-feature__top">
+                                <img src="./static/img/top/img-cat2.png" alt="image featured" />
+                                <h4>歯科衛生士</h4>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-featured-list__item">
+                            <div class="search-feature__top">
+                                <img src="./static/img/top/img-cat3.png" alt="image featured" />
+                                <h4>介護職/ヘルパー</h4>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-featured-list__item">
+                            <div class="search-feature__top">
+                                <img src="./static/img/top/img-cat4.png" alt="image featured" />
+                                <h4>保育士</h4>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="search-featured-list__item">
+                            <div class="search-feature__top">
+                                <img src="./static/img/top/img-cat5.png" alt="image featured" />
+                                <h4>理学療法士</h4>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                            <div class="search-featured__cate">
+                                <p>関東</p>
+                                <div class="search-featured-link">
+                                    <a href="#1234">東京都</a>
+                                    <a href="#1234">神奈川県</a>
+                                    <a href="#1234">埼玉県</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- End Section search featured -->
+
+        <!-- Section News -->
+        <div class="con-news">
+            <div class="box-news container">
+                <div class="header-news">
+                    <div class="header-news__logo">
+                        <img src="./static/img/top/ic-logo.png" alt="DYMの就職・復職・転職サービスについて" />
+                    </div>
+                    <h3 class="header-news_title">DYMの就職・復職・転職サービスについて</h3>
+                </div>
+                <div class="news-content">
+                    <div class="news-content__item">
+                        <img src="./static/img/top/img-news1.png" alt="サービス紹介のテキストが入ります サービス紹介のテキストが入ります" />
+                        <div class="news-content__info">
+                            <h4>サービス紹介のテキストが入ります
+                                サービス紹介のテキストが入ります</h4>
+                            <p class="desc">サービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入ります
+                                サービス紹介のテキストが入ります</p>
+                        </div>
+                    </div>
+                    <div class="news-content__item flex-row-reverse">
+                        <img src="./static/img/top/img-news2.png" alt="サービス紹介のテキストが入ります サービス紹介のテキストが入ります" />
+                        <div class="news-content__info">
+                            <h4>サービス紹介のテキストが入ります
+                                サービス紹介のテキストが入ります</h4>
+                            <p class="desc">サービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入りますサービス紹介のテキストが入ります
+                                サービス紹介のテキストが入ります</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Section News -->
+        <!-- Section FAQ -->
+        <div class="con-faq">
+            <div class="container">
+                <div class="box-faq row">
+                    <div class="box-faq-l">
+                        <div class="box-faq-inner">
+                            <h3 class="sst-title-s">
+                                <span class="sst-title-s__icon">
+                                    <svg width="34" height="40" viewBox="0 0 34 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M26.1667 35.3817C25.635 35.3817 25.14 35.2717 24.7733 35.1067C23.4717 34.4283 22.555 33.4933 21.6383 30.7433C20.7033 27.8833 18.9433 26.545 17.2567 25.2433C15.8083 24.125 14.305 22.97 13.0033 20.605C12.0317 18.845 11.5 16.92 11.5 15.215C11.5 10.0817 15.5333 6.04833 20.6667 6.04833C25.8 6.04833 29.8333 10.0817 29.8333 15.215H33.5C33.5 8.00999 27.8717 2.38166 20.6667 2.38166C13.4617 2.38166 7.83333 8.00999 7.83333 15.215C7.83333 17.525 8.53 20.0733 9.795 22.365C11.4633 25.39 13.425 26.9117 15.02 28.14C16.505 29.2767 17.5683 30.1017 18.155 31.8983C19.255 35.235 20.6667 37.105 23.16 38.4067C24.095 38.8283 25.1217 39.0483 26.1667 39.0483C30.2183 39.0483 33.5 35.7667 33.5 31.715H29.8333C29.8333 33.7317 28.1833 35.3817 26.1667 35.3817ZM9.00667 3.55499L6.40333 0.95166C2.755 4.59999 0.5 9.64166 0.5 15.215C0.5 20.7883 2.755 25.83 6.40333 29.4783L8.98833 26.8933C6.01833 23.905 4.16667 19.78 4.16667 15.215C4.16667 10.65 6.01833 6.52499 9.00667 3.55499ZM16.0833 15.215C16.0833 17.745 18.1367 19.7983 20.6667 19.7983C23.1967 19.7983 25.25 17.745 25.25 15.215C25.25 12.685 23.1967 10.6317 20.6667 10.6317C18.1367 10.6317 16.0833 12.685 16.0833 15.215Z" fill="#EC644D"/>
+                                    </svg>
+                                </span>
+                                <span class="sst-title-s__txt">転職について<br />
+                                    知りたい・聞きたい</span>
+                            </h3>
+                            <p>医療介護業界で仕事をする人の「働く」を考えるメディア。</p>
+                            <div class="faq-content">
+                                <div class="faq-item">
+                                    <div class="faq-item__featured">
+                                        <img src="./static/img/top/img-post.png" alt="image featured" />
+                                    </div>
+                                    <div class="faq-item__info">
+                                        <h4>認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 実務経験あり・な別...</h4>
+                                        <p class="faq-item__group">
+                                            <span class="job">職種・資格を知る</span>
+                                            <span class="date">2022/06/20</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="faq-item">
+                                    <div class="faq-item__featured">
+                                        <img src="./static/img/top/img-post.png" alt="image featured" />
+                                    </div>
+                                    <div class="faq-item__info">
+                                        <h4>認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 実務経験あり・な別...</h4>
+                                        <p class="faq-item__group">
+                                            <span class="job">職種・資格を知る</span>
+                                            <span class="date">2022/06/20</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <button type="button" class="btn btn-default">
+                                記事をもっと見る
+                                <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.530029 7.56L3.58336 4.5L0.530029 1.44L1.47003 0.5L5.47003 4.5L1.47003 8.5L0.530029 7.56Z" fill="#019CCE"/>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="box-faq-r">
+                        <div class="box-faq-inner">
+                            <h3 class="sst-title-s">
+                                <span class="sst-title-s__icon">
+                                    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M30.3335 3.66634L30.3335 25.6163L28.3835 23.6663L3.66683 23.6663L3.66683 3.66634L30.3335 3.66634ZM30.3335 0.333008L3.66683 0.333008C1.8335 0.333008 0.333496 1.83301 0.333496 3.66634L0.333496 23.6663C0.333496 25.4997 1.8335 26.9997 3.66683 26.9997L27.0002 26.9997L33.6668 33.6663L33.6668 3.66634C33.6668 1.83301 32.1668 0.333008 30.3335 0.333008ZM27.0002 16.9997L7.00016 16.9997L7.00016 20.333L27.0002 20.333V16.9997ZM27.0002 11.9997L7.00016 11.9997L7.00016 15.333L27.0002 15.333V11.9997ZM27.0002 6.99967L7.00016 6.99967L7.00016 10.333L27.0002 10.333V6.99967Z" fill="#EC644D"/>
+                                    </svg>
+
+                                </span>
+                                <span class="sst-title-s__txt">利用者のお声</span>
+                            </h3>
+                            <p>実際にDYMで転職された方々の声をご紹介しています。</p>
+                            <div class="faq-content">
+                                <div class="faq-item flex-column">
+                                    <div class="faq-item-user">
+                                        <div class="faq-item__user">
+                                            <img src="./static/img/icons/ic-user.png" alt="30代 女性 千葉県" />
+                                        </div>
+                                        <h4>30代 女性 千葉県<span>医療事務/受付</span></h4>
+                                    </div>
+                                    <p>DYMに掲載されている求人は、すべて契約事業所から寄せられた正規の求人情報です。DYMに掲載されている応募いただいた内…</p>
+                                </div>
+                                <div class="faq-item flex-column">
+                                    <div class="faq-item-user">
+                                        <div class="faq-item__user">
+                                            <img src="./static/img/icons/ic-user.png" alt="30代 女性 千葉県" />
+                                        </div>
+                                        <h4>30代 女性 千葉県<span>医療事務/受付</span></h4>
+                                    </div>
+                                    <p>DYMに掲載されている求人は、すべて契約事業所から寄せられた正規の求人情報です。DYMに掲載されている応募いただいた内…</p>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-default">
+                                お声をもっと見る
+                                <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.530029 7.56L3.58336 4.5L0.530029 1.44L1.47003 0.5L5.47003 4.5L1.47003 8.5L0.530029 7.56Z" fill="#019CCE"/>
+                                </svg>
+
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Section FAQ -->
+        <!-- Section Blog List -->
+        <div class="con-blog">
+            <div class="box-blog container">
+                <h3 class="sst-title-s">
+                    <span class="sst-title-s__icon">
+                        <svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M27.0002 12.3327C27.0002 13.4493 27.0002 14.5493 27.0002 15.666C29.0002 15.666 31.6002 15.666 33.6668 15.666C33.6668 14.5493 33.6668 13.4493 33.6668 12.3327C31.6002 12.3327 29.0002 12.3327 27.0002 12.3327Z" fill="#EC644D"/>
+                        <path d="M23.6668 23.3493C25.2668 24.5327 27.3502 26.0993 29.0002 27.3327C29.6668 26.4493 30.3335 25.5493 31.0002 24.666C29.3502 23.4327 27.2668 21.866 25.6668 20.666C25.0002 21.566 24.3335 22.466 23.6668 23.3493Z" fill="#EC644D"/>
+                        <path d="M31.0002 3.33268C30.3335 2.44935 29.6668 1.54935 29.0002 0.666016C27.3502 1.89935 25.2668 3.46602 23.6668 4.66602C24.3335 5.54935 25.0002 6.44935 25.6668 7.33268C27.2668 6.13268 29.3502 4.58268 31.0002 3.33268Z" fill="#EC644D"/>
+                        <path d="M3.66683 8.99935C1.8335 8.99935 0.333496 10.4993 0.333496 12.3327L0.333496 15.666C0.333496 17.4993 1.8335 18.9993 3.66683 18.9993H5.3335L5.3335 25.666H8.66683V18.9993H10.3335L18.6668 23.9993L18.6668 3.99935L10.3335 8.99935L3.66683 8.99935ZM12.0502 11.8493L15.3335 9.88268L15.3335 18.116L12.0502 16.1493L11.2502 15.666L3.66683 15.666L3.66683 12.3327L11.2502 12.3327L12.0502 11.8493Z" fill="#EC644D"/>
+                        <path d="M22.8335 13.9993C22.8335 11.7827 21.8668 9.78268 20.3335 8.41601L20.3335 19.566C21.8668 18.216 22.8335 16.216 22.8335 13.9993Z" fill="#EC644D"/>
+                        </svg>
+                    </span>
+                    <span class="sst-title-s__txt">お知らせ</span>
+                </h3>
+                <div class="blog-list">
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+                    <div class="blog-item">
+                        <a class="blog-item-link" href="#1234">
+                            <span class="blog-item-link__date">2022/06/20</span>
+                            <span class="blog-item-link__news">お知らせ</span>
+                            <span class="blog-item-link__info">認知症ケアに役立つ研修や資格って？ 実務経験あり・なし別認知症ケアに役立つ研修や資格って？ 立つ研…</span>
+                        </a>
+                    </div>
+
+                </div>
+                <button type="button" class="btn btn-default">
+                    お知らせについてもっと見る
+                    <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0.530029 7.56L3.58336 4.5L0.530029 1.44L1.47003 0.5L5.47003 4.5L1.47003 8.5L0.530029 7.56Z" fill="#019CCE"/>
+                    </svg>
+
+                </button>
+            </div>
+        </div>
+        <!-- End Section Blog List -->
+    </div>
+    <!-- End main -->
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="card shadow border-0 mb-4">
+                        <div class="card-body px-5">
+                            <h3 class="card-title mb-0">ご利用にお困りの方はこちら</h3>
+                            <button type="button" class="btn btn-default mt-2 d-flex w-100 justify-content-center">ヘルプ・お問い合わせ</button>
+                        </div>
+                    </div>
+                    <div class="navbar-logo mb-3">
+                        <a class="navbar-brand" href="#">
+                            <span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+                            <button type="button" class="btn">Logo</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12 ml-auto">
+                    <ul class="list-unstyled list-items d-flex mb-5">
+                        <li class="list-item list-item-first">サービスについて</li>
+                        <li class="list-item">
+                            <p class="mb-1">ご利用ガイド ヘルプ・お問い合わせ</p>
+                            <p class="mb-0">私たちのミッション 利用者のお声 お知らせ</p>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled list-items d-flex">
+                        <li class="list-item list-item-first">採用担当者様へ</li>
+                        <li class="list-item">
+                            <p class="mb-0">求人掲載をお考の方へ</p>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled list-items d-flex mb-3">
+                        <li class="list-item list-item-first">運営会社情報</li>
+                        <li class="list-item">
+                            <p class="mb-1">運営会社</p>
+                            <p class="mb-1">DYM転職（第二新卒・既卒・フリーターのための転職サイト）</p>
+                            <p class="mb-0">DYMテック（エンジニア向け転職サイト）</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <p class="copyright mb-0">Copyright &copy; 2022 DYM All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Script -->
+    <script src="static/js/app.min.js"></script>
+
+    <!-- ScrollTop -->
+    <a href="#" id="scrollTop" class="scroll" style="display: none;">
+        <img src="static/img/icons/arrow-up.svg" />
+    </a>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+.list {
+    &-item {
+        color: $white;
+        font-size: 14px;
+        font-weight: 300;
+        &-first {
+            min-width: 112px;
+            margin-right: 30px;
+            font-size: 14px;
+            color: $light-primary;
+            font-weight: 600;
+        }
+    }
+}

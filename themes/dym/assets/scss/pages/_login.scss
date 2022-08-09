@@ -1,0 +1,55 @@
+.login-card {
+    border-radius: 1.5rem;
+}
+.login-card-header {
+    .card-header-title {
+        color: $secondaryColor;
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 36px;
+    }
+}
+.login-card-body {
+    .card-body-forgot {
+        color: $caution;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+.login-card-footer {
+    .card-footer-title {
+        color: $secondaryColor;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 22px;
+    }
+    .card-footer-summary {
+        color: $black-text;
+    }
+    .card-footer-register {
+        border: 2px solid $secondaryColor;
+        border-radius: 4px;
+        color: $secondaryColor;
+        line-height: 21px;
+        padding: .625rem 1rem;
+        text-decoration: none !important;
+    }
+}
+.login-form {
+    .lbl {
+        color: $black-text;
+        margin-bottom: 5px;
+    }
+    .form-control {
+        color: $black-gray;
+        height: calc(2.25rem + 4px);
+        padding: 0.5rem 1rem;
+    }
+    .form-text {
+        font-size: 12px;
+    }
+    .is-invalid {
+        background-color: rgb(220 53 69 / 20%);
+    }
+}
+

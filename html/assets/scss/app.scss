@@ -1,0 +1,34 @@
+@import "../../node_modules/bootstrap";
+
+//Base
+@import "base/variables";
+@import 'base/global';
+@import 'base/fonts';
+@import 'base/mixins';
+
+//Layouts
+@import 'layouts/navbars';
+@import 'layouts/footer';
+
+//Component
+@import 'component/background';
+@import 'component/box-model';
+@import 'component/text';
+@import 'component/container';
+@import 'component/lists';
+@import 'component/button';
+@import 'component/card';
+@import 'component/progress';
+@import 'component/paragraph';
+@import 'component/modal';
+@import 'component/box';
+@import 'component/breadcrumb';
+@import 'component/tables';
+@import 'component/forms';
+//Pages
+@import 'pages/login';
+@import 'pages/reset';
+@import 'pages/home';
+@import 'pages/register';
+@import 'pages/mypage';
+@import 'pages/detail-job';

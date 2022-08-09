@@ -1,0 +1,60 @@
+.register {
+    &-description {
+        margin-bottom: 0;
+
+    }
+}
+.register-form {
+    .lbl {
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.375rem;
+    }
+    .label-required {
+        background-color: $bg-header;
+        border-radius: 2.5rem;
+        color: $caution;
+        display: inline-block;
+        font-size: .75rem;
+        line-height: 1.5rem;
+    }
+    .form-textarea {
+        min-height: 282px;
+        border-color: $light-gray;
+    }
+    .form-check-inline,
+    .form-check {
+        .form-check-input {
+            width: 20px;
+            height: 20px;
+            margin-right: 0;
+        }
+        .form-check-label {
+            margin-bottom: 0;
+            font-size: 14px;
+            line-height: 24px;
+            margin-left: 8px;
+            padding-top: 3px;
+        }
+    }
+}
+.register-card-body {
+    padding-top: 65px;
+    padding-bottom: 65px;
+    .row {
+        padding-top: .75rem;
+        padding-bottom: .75rem;
+    }
+    .row:not(:first-child) {
+        border-top: 1px solid $black-line;
+    }
+    .col-lable {
+        padding-left: 0;
+        .lbl {
+            margin-bottom: 0;
+        }
+    }
+    .col-text {
+        padding-right: 0;
+    }
+}

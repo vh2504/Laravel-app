@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<ruleset name="PHP_CodeSniffer">
+    <description>The coding standard for dym project.</description>
+    <exclude-pattern>bootstrap/cache/*</exclude-pattern>
+    <exclude-pattern>bootstrap/*</exclude-pattern>
+    <exclude-pattern>config/debugbar.php</exclude-pattern>
+    <exclude-pattern>*/migrations/*</exclude-pattern>
+    <exclude-pattern>*/seeds/*</exclude-pattern>
+    <exclude-pattern>*.blade.php</exclude-pattern>
+    <exclude-pattern>*.js</exclude-pattern>
+    <exclude-pattern>app/Http/Middleware/Authenticate.php</exclude-pattern>
+
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+    <rule ref="PSR2"/>
+
+<!--    Method-->
+    <rule ref="Squiz.Scope.MethodScope"/>
+
+
+    <rule ref="PEAR.NamingConventions.ValidFunctionName"/>
+    <rule ref="PEAR.NamingConventions.ValidVariableName"/>
+    <rule ref="PEAR.Commenting.InlineComment"/>
+    <rule ref="PEAR.NamingConventions.ValidFunctionName.PrivateNoUnderscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PEAR.Commenting.InlineComment.WrongStyle"/>
+    <rule ref="Squiz.Commenting.FunctionComment"/>
+    <rule ref="Squiz.Commenting.VariableComment"/>
+
+    <rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing"/>
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.Commenting.Fixme"/>
+    <rule ref="Generic.Commenting.Todo"/>
+    <rule ref="Squiz.Commenting.DocCommentAlignment"/>
+    <rule ref="Squiz.Commenting.LongConditionClosingComment"/>
+    <rule ref="Squiz.Commenting.PostStatementComment"/>
+    <rule ref="PSR2.Files.ClosingTag"/>
+    <rule ref="PSR2.Files.EndFileNewline"/>
+    <rule ref="PSR2.Classes.PropertyDeclaration.Underscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Generic.WhiteSpace.ScopeIndent.Incorrect">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Generic.WhiteSpace.ScopeIndent.IncorrectExact">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PSR1.Methods.CamelCapsMethodName"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.CamelCaps"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.NotCamelCaps"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.StringNotCamelCaps"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+        <severity>0</severity>
+    </rule>
+    <rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd"/>
+    <rule ref="Squiz.Commenting.PostStatementComment.Found"/>
+    <!-- Class constants must be uppercase -->
+    <rule ref="Generic.NamingConventions.UpperCaseConstantName.ClassConstantNotUpperCase"/>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamComment">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.TypeHintMissing"/>
+    <rule ref="Squiz.Commenting.FunctionComment.IncorrectParamVarName">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.EmptyThrows">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingReturn"/>
+    <rule ref="Squiz.Commenting.FunctionComment.MissingParamName"/>
+    <rule ref="Squiz.Commenting.FunctionComment.InvalidReturn">
+        <severity>0</severity>
+    </rule>
+    <rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+    <rule ref="Generic.Files.LineLength.TooLong"/>
+    <rule ref="Squiz.Commenting.LongConditionClosingComment.Missing"/>
+    <rule ref="Squiz.Commenting.FunctionComment.ScalarTypeHintMissing"/>
+    <rule ref="Squiz.Scope.MethodScope.Missing"/>
+    <rule ref="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+    <rule ref="Squiz.Commenting.FunctionComment.InvalidReturnNotVoid"/>
+    <rule ref="PSR2.Methods.MethodDeclaration.Underscore"/>
+    <rule ref="PSR2.Methods.MethodDeclaration"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName.PublicHasUnderscore"/>
+    <rule ref="Generic.Commenting.Todo.TaskFound"/>
+    <rule ref="Squiz.NamingConventions.ValidVariableName"/>
+    <!-- Ban some functions -->
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array">
+                <element key="sizeof" value="count"/>
+                <element key="delete" value="unset"/>
+                <element key="print" value="echo"/>
+                <element key="create_function" value="null"/>
+            </property>
+        </properties>
+    </rule>
+
+    <arg name="colors"/>
+    <arg value="p"/>
+    <ini name="memory_limit" value="512M"/>
+</ruleset>

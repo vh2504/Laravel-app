@@ -1,0 +1,13 @@
+.reset-card {
+    &-header {
+        .card-header-title {
+            color: $black-text;
+            font-weight: 600;
+            font-size: 1.75rem;
+            line-height: 2.25rem;
+        }
+    }
+    &-description {
+        color: $black-text;
+    }
+}

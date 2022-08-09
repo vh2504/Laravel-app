@@ -1,0 +1,22 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+parameters:
+    paths:
+        - app
+    level: 9
+    ignoreErrors:
+        - "#^Cannot cast array\\|string\\|null to string\\.$#"
+        - '#Parameter \#1 \$view of function view expects view-string|null, string given#'
+        - '#Cannot cast mixed to string#'
+        - '#Cannot cast mixed to int#'
+        - '#Cannot cast array\|int\|string to string#'
+    excludePaths:
+        - app/Models/Role.php
+        - app/Models/User.php
+        - app/Models/Tag.php
+        - app/Models/Item.php
+        - app/Models/Category.php
+        - app/Observers/
+        - app/Http/Requests/UserRequest.php
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false

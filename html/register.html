@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Template Frontend Login</title>
+    <link href="#favicon" rel="icon" type="image/png">
+
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet" media="all">
+    <link type="text/css" href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body class="position-relative bg-white">
+    <!-- Navbars -->
+    <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-header py-0">
+        <div class="container-fluid">
+            <a class="navbar-brand py-2 py-sm-0" href="#">
+                <span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+                <button type="button" class="btn btn-sm">Logo</button>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars fa-bars-m" aria-hidden="true"></i>
+            </button>
+            <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+                <ul class="navbar-nav navbar-nav-member align-items-lg-center ml-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <div class="position-relative">
+                                <span class="nav-badge">1</span>
+                                <img class="mb-2" src="static/img/icons/star.svg" />
+                            </div>
+                            <span class="nav-link-inner--text">気になる</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/time.svg" />
+                            <span class="nav-link-inner--text">閲覧履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/account.svg" />
+                            <span class="nav-link-inner--text">会員登録する</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/login.svg" />
+                            <span class="nav-link-inner--text nav-link-inner--login">ログインする</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbars -->
+    <!-- Main content -->
+    <div class="main-content bg-reset">
+        <div class="box-header bg-header-register">
+            <div class="container">
+                <h3 class="heading-register mb-0">
+                    <img src="static/img/icons/person.svg" alt="person" />
+                    <span>新規会員登録</span>
+                </h3>
+            </div>
+        </div>
+        <div class="bg-main pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Progress -->
+                        <div class="row text-center mb-4 pb-3">
+                            <div class="col-12 col-md-3"></div>
+                            <div class="col-12 col-md-7 pl-5">
+                                <div class="progress-container">
+                                    <div class="progress" id="progress"></div>
+                                    <div class="circle active-progress">
+                                        1
+                                        <span class="mb-0">ログイン情報</span>
+                                    </div>
+                                    <div class="circle text-center">
+                                        2
+                                        <span class="mb-0">基本情報</span>
+                                    </div>
+                                    <div class="circle text-center">
+                                        3
+                                        <span class="mb-0">希望条件</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card bg-transparent border-0">
+                            <div class="card-body reset-card-body p-0">
+                                <form role="form-tab01" method="POST" action="#" class="login-form register-form">
+                                    <div class="register-tab">
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="email">メールアドレス <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <p class="mb-0 fs-14 lh-24">パソコン用/スマートフォン用 どちらでも可</p>
+                                                <!-- is-invalid -->
+                                                <input type="email" class="form-control fs-14 lh-24" id="email" name="email" placeholder="sample@email.co.jp">
+                                                <!-- invalid-feedback -->
+                                                <span class="form-text d-none" role="alert">
+                                                    パスワードを入力してください
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="password">パスワード  <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <p class="mb-0 fs-14 lh-24">ログインする際に使用します</p>
+                                                <input type="password" class="form-control fs-14 lh-24" id="password" name="password" placeholder="半角英数字記号8文字以上 ">
+                                                <span class="form-text d-none" role="alert">
+                                                    パスワードを入力してください
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="password_confirmation">新しいパスワード <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <input type="password" class="form-control fs-14 lh-24" id="password_confirmation" name="password_confirmation" placeholder="半角英数字記号8文字以上 ">
+                                                <span class="form-text d-none" role="alert">
+                                                    パスワードを入力してください
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="register-tab d-none">
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="fullname">氏名 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="firstname" name="firstname" placeholder="山田">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="lastname" name="lastname" placeholder="花子">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="fullname-furigana">ふりがな <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="firstname-furigana" name="firstname-furigana" placeholder="やまだ">
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="lastname-furigana" name="lastname-furigana" placeholder="はなこ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="birthday">生年月日 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <select class="form-control fs-14 lh-24" name="year" id="year">
+                                                            <option value="">西暦</option>
+                                                            <option value="2022">2022</option>
+                                                            <option value="2023">2023</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <select class="form-control fs-14 lh-24" name="month" id="month">
+                                                                    <option value="">月</option>
+                                                                    <option value="1">01</option>
+                                                                    <option value="2">02</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <select class="form-control fs-14 lh-24" name="day" id="day">
+                                                                    <option value="">日</option>
+                                                                    <option value="1">01</option>
+                                                                    <option value="2">02</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="gender">性別 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4 d-flex justify-content-between">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="male" id="male" value="1" checked>
+                                                            <label class="form-check-label" for="male">女性</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="female" id="female" value="0">
+                                                            <label class="form-check-label" for="female">男性</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="zipcode">郵便番号</label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="zipcode" name="zipcode" placeholder="郵便番号を入力">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-start">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="address">住所 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row mb-3">
+                                                    <div class="col-4">
+                                                        <select class="form-control fs-14 lh-24" name="province" id="province">
+                                                            <option value="">都道府県を選択</option>
+                                                            <option value="province01">province01</option>
+                                                            <option value="province02">province02</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <select class="form-control fs-14 lh-24" name="district" id="district">
+                                                            <option value="">市区町村・町名を選択</option>
+                                                            <option value="District01">District01</option>
+                                                            <option value="District02">District02</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-3">
+                                                    <div class="col-12">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="wards" name="wards" placeholder="町内・番地">
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="building" name="building" placeholder="建物名">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="phone">電話番号 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-4">
+                                                        <input type="text" class="form-control fs-14 lh-24" id="phone" name="phone" placeholder="電話番号を入力">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="status">現在の就業状況 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <div class="row">
+                                                    <div class="col-6 d-flex justify-content-between">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="status" id="working" value="1" checked>
+                                                            <label class="form-check-label" for="working">就業中</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="status" id="unemployed" value="2">
+                                                            <label class="form-check-label" for="unemployed">離職中</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="status" id="studying" value="3">
+                                                            <label class="form-check-label" for="studying">在学中</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="register-tab d-none">
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="type-jobs">希望勤務形態 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-7 d-flex justify-content-between">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="employee" value="1">
+                                                    <label class="form-check-label" for="employee">正社員</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="contract" value="2">
+                                                    <label class="form-check-label" for="contract">契約社員</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="collaborator" value="3">
+                                                    <label class="form-check-label" for="collaborator">パート・アルバイト</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="outsource" value="4">
+                                                    <label class="form-check-label" for="outsource">業務委託</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-start">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="job-collections">希望職種 <span class="label-required text-danger">（必須）</span></label>
+                                            </div>
+                                            <div class="col-12 col-md-9">
+                                                <p class="mb-4 fs-14 lh-24 text-primary-red">希望職種を選択してください</p>
+                                                <div class="accordion" id="accordionCollections">
+                                                    <div class="card collection-card">
+                                                      <div class="card-header" id="headingOne">
+                                                        <h2 class="mb-0">
+                                                            <button class="btn btn-link btn-block d-flex justify-content-between align-items-center" type="button" data-toggle="collapse" data-target="#collection1" aria-expanded="true" aria-controls="collapseOne">
+                                                                <span class="card-btn-text">医科</span>
+                                                                <span class="card-btn-up">
+                                                                    <img src="static/img/icons/up.svg" alt="up">
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                      </div>
+
+                                                      <div id="collection1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionCollections">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection1" value="1">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection1">医師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection2" value="2">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection2">薬剤師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection3" value="3">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection3">看護師/准看護師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection4" value="4">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection4">助産師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection5" value="5">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection5">医療ソーシャルワーカー</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection6" value="6">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection6">医療事務/受付</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="card collection-card">
+                                                      <div class="card-header" id="headingTwo">
+                                                        <h2 class="mb-0">
+                                                            <button class="btn btn-link btn-block d-flex justify-content-between align-items-center collapsed" type="button" data-toggle="collapse" data-target="#collection2" aria-expanded="false" aria-controls="collapseTwo">
+                                                                <span class="card-btn-text">歯科</span>
+                                                                <span class="card-btn-up">
+                                                                    <img src="static/img/icons/up.svg" alt="up">
+                                                                </span>
+                                                            </button>
+                                                        </h2>
+                                                      </div>
+                                                      <div id="collection2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionCollections">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection7" value="7">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection7">医師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection8" value="8">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection8">薬剤師</label>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6 col-sm-6 col-md-4">
+                                                                    <div class="form-check form-check-inline mb-4">
+                                                                        <input class="form-check-input" type="checkbox" id="chk-collection9" value="9">
+                                                                        <label class="form-check-label text-secondary-label" for="chk-collection9">看護師/准看護師</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-6 align-items-center">
+                                            <div class="col-12 col-md-3">
+                                                <label class="lbl" for="password_confirmation">
+                                                    利用規約・個人情報の <br>取り扱い <span class="label-required text-danger">（必須）</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-12 col-md-7">
+                                                <textarea class="form-control form-textarea mb-3" name="" id="" cols="30" rows="10">
+    株式会社DYM就職・転職支援サービス運営規約
+    個人情報の取扱について
+
+    【就職・転職支援サービス運営規約】
+    就職・転職支援サービス利用規約
+
+    株式会社DYM(以下、「当社」と記載)が提供する就職・転職支援サービスの(以下「本サービス」と記載)ご利用申込みにあたっては、以下の運営規約(以下「本規約」といいます)についてご承諾の上でお申込み頂けますようお願い致します。
+
+    １．(定義)…
+                                                </textarea>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="checkbox" id="inlChk5" value="1" checked>
+                                                    <label class="form-check-label" for="inlChk5">同意する</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-center col-12 ml-auto" id="login">
+                                        <button id="btn-prev-js" type="button" class="btn btn-primary-action mt-3 mb-3 fs-14 d-none">もどる</button>
+                                        <button id="btn-next-js" type="button" class="btn btn-secondary-action mt-3 mb-3 fs-14">つぎへ</button>
+                                        <button id="btn-submit-js" type="submit" class="btn btn-primary-submit mt-3 mb-3 fs-14 lh-24 d-none">登録確認画面へ</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Support Description-->
+            <div class="container pb-10 pt-5-custom">
+                <h2 class="heading-support text-center">
+                    <span>会員登録する3つのメリット</span>
+                </h2>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/support.svg" alt="support"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">アドバイザーの徹底サポート</h3>
+                            <p class="card-item-description">キャリアアドバイザーが、Zoom等でご希望の案件に合わせて選考対策をサポートします。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/jobs.svg" alt="jobs"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">希望に合った求人が届く</h3>
+                            <p class="card-item-description">希望の職種・エリアなどを登録いただければ条件にあった新着求人をメールでお送りします。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/registered.svg" alt="registered"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">会員限定機能が利用できる</h3>
+                            <p class="card-item-description">気になる機能や履歴書・職務経歴書作成機能、職場の環境の閲覧など会員限定機能が利用できます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End main -->
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="card shadow border-0 mb-4">
+                        <div class="card-body px-5">
+                            <h3 class="card-title mb-0">ご利用にお困りの方はこちら</h3>
+                            <button type="button" class="btn btn-default mt-2 d-flex w-100 justify-content-center">ヘルプ・お問い合わせ</button>
+                        </div>
+                    </div>
+                    <div class="navbar-logo mb-3">
+                        <a class="navbar-brand" href="#">
+                            <span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+                            <button type="button" class="btn">Logo</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12 ml-auto">
+                    <ul class="list-unstyled list-items d-flex mb-5">
+                        <li class="list-item list-item-first">サービスについて</li>
+                        <li class="list-item">
+                            <p class="mb-1">ご利用ガイド ヘルプ・お問い合わせ</p>
+                            <p class="mb-0">私たちのミッション 利用者のお声 お知らせ</p>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled list-items d-flex mb-3">
+                        <li class="list-item list-item-first">運営会社情報</li>
+                        <li class="list-item">
+                            <p class="mb-1">運営会社</p>
+                            <p class="mb-1">DYM転職（第二新卒・既卒・フリーターのための転職サイト）</p>
+                            <p class="mb-0">DYMテック（エンジニア向け転職サイト）</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <p class="copyright mb-0">Copyright &copy; 2022 DYM All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Script -->
+    <script src="static/js/app.min.js"></script>
+
+    <!-- ScrollTop -->
+    <a href="#" id="scrollTop" class="scroll" style="display: none;">
+        <img src="static/img/icons/arrow-up.svg" />
+    </a>
+</body>
+
+</html>

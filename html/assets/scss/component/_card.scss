@@ -1,0 +1,72 @@
+.card {
+    background-color: $white;
+    border: 0;
+    &-title {
+        color: $black-text;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+    }
+    &-item {
+        min-height: 368px;
+        border-radius: 2.5rem !important;
+        border: 0;
+        box-shadow: 0 3px 2px rgba($light-primary, 40%);
+        padding: 32px;
+        justify-content: center;
+
+        &-icon {
+            span {
+                border-radius: 9999px;
+                width: 64px;
+                height: 64px;
+                background-color: $bg-header;
+                display: inline-block;
+                line-height: 64px;
+            }
+        }
+        &-title {
+            color: $primary-red;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24px;
+            margin-bottom: 28px;
+        }
+        &-description {
+            color: $black-text;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 24px;
+        }
+    }
+}
+.collection-card {
+    border-radius: 16px !important;
+    margin-bottom: 1.5rem;
+    border: 0;
+    .card-header {
+        border: 0;
+        box-shadow: 0 3px 2px rgb(248 181 169 / 40%);
+        background-color: $white;
+        border-radius: 1rem !important;
+    }
+    .card-body {
+        padding-bottom: 0!important;
+    }
+    .btn-link {
+        text-decoration: none !important;
+        border: 0;
+        .card-btn-text {
+            color: $black-gray !important;
+            font-size: 20px;
+            line-height: 1.5rem;
+        }
+    }
+    .collapsed {
+        .card-btn-up {
+            img {
+                transform: rotate(180deg);
+            }
+        }
+    }
+}

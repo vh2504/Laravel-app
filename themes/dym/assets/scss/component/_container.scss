@@ -1,0 +1,9 @@
+.container {
+    &-login {
+        padding-top: 2.5rem;
+        padding-bottom: 125px;
+    }
+    &-md {
+        max-width: 760px;
+    }
+}

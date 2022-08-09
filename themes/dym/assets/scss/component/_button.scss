@@ -1,0 +1,86 @@
+.btn {
+    border-radius: 4px;
+    padding: 0 16px;
+    color: $gray-light;
+    border: 2px solid $gray-light;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 36px;
+    align-items: center;
+    &:hover {
+        border-color: #4E4E4E;
+    }
+    &-secondary {
+        background-color: $primary-red;
+        border-color: $primary-red;
+        &:hover {
+            background-color: $primary-red-action;
+            border-color: $primary-red-action;
+        }
+    }
+    &-login {
+        background-color: $secondaryColor;
+        border-color: $secondaryColor;
+        color: $white !important;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+    }
+    &-reset {
+        background-color: $primary-red;
+        border-color: $primary-red;
+        color: $white;
+        font-weight: 600;
+        line-height: 21px;
+        padding: 0.75rem 1rem;
+    }
+    &-default {
+        background-color: transparent;
+        border-color: $secondaryColor;
+        color: $secondaryColor;
+        &:hover {
+            border-color: $secondaryColor-action;
+            background-color: #F1FAFF;
+            color: $secondaryColor-action;
+        }
+    }
+    &-primary {
+        background-color: $primaryColor;
+        border-color: $primaryColor;
+        color: $white;
+        &:hover {
+            background-color: $primaryColor-action;
+            border-color: $primaryColor-action;
+        }
+    }
+    &-secondary-action {
+        border: 2px solid $secondaryColor !important;
+        border-radius: 4px;
+        color: $secondaryColor !important;
+        line-height: 21px;
+        padding: 0.625rem 1rem;
+        text-decoration: none !important;
+        background-color: transparent !important;
+        &:hover {
+            border-color: $secondaryColor !important;
+            background-color: $secondaryColor !important;
+            color: $white !important;
+        }
+    }
+    &-primary-action {
+        border: 1px solid $black-gray !important;
+        border-radius: 4px;
+        color: $black-gray !important;
+        line-height: 21px;
+        padding: 0.625rem 1.5rem;
+        text-decoration: none !important;
+        background-color: $white !important;
+    }
+    &-primary-submit {
+        background-color: $secondaryColor;
+        border: 1px solid $secondaryColor;
+        color: $white !important;
+        padding: 0.625rem 1rem;
+        font-weight: 600;
+        line-height: 21px !important;
+    }
+}

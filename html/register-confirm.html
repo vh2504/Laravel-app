@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Template Frontend Login</title>
+    <link href="#favicon" rel="icon" type="image/png">
+
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css" rel="stylesheet" media="all">
+    <link type="text/css" href="static/css/app.css" rel="stylesheet">
+</head>
+
+<body class="position-relative bg-white">
+    <!-- Navbars -->
+    <nav id="navbar-main" class="navbar navbar-horizontal navbar-transparent navbar-main navbar-expand-lg navbar-header py-0">
+        <div class="container-fluid">
+            <a class="navbar-brand py-2 py-sm-0" href="#">
+                <span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+                <button type="button" class="btn btn-sm">Logo</button>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars fa-bars-m" aria-hidden="true"></i>
+            </button>
+            <div class="navbar-collapse navbar-custom-collapse collapse" id="navbar-collapse">
+                <ul class="navbar-nav navbar-nav-member align-items-lg-center ml-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <div class="position-relative">
+                                <span class="nav-badge">1</span>
+                                <img class="mb-2" src="static/img/icons/star.svg" />
+                            </div>
+                            <span class="nav-link-inner--text">気になる</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/time.svg" />
+                            <span class="nav-link-inner--text">閲覧履歴</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-link-hover nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/account.svg" />
+                            <span class="nav-link-inner--text">会員登録する</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-icon" href="#" target="_blank">
+                            <img class="mb-2" src="static/img/icons/login.svg" />
+                            <span class="nav-link-inner--text nav-link-inner--login">ログインする</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbars -->
+    <!-- Main content -->
+    <div class="main-content bg-reset">
+        <div class="box-header bg-header-register">
+            <div class="container">
+                <h3 class="heading-register mb-0">
+                    <img src="static/img/icons/person.svg" alt="person" />
+                    <span>新規会員登録</span>
+                </h3>
+            </div>
+        </div>
+        <div class="bg-main">
+            <div class="bg-confirm pt-6">
+                <div class="container container-md">
+                    <form role="form" method="POST" action="#">
+                        <div class="card login-card bg-white shadow px-4 border-0 mb-7">
+                            <div class="card-body register-card-body col-12 col-lg-9 mx-auto">
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">メールアドレス <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        sample@email.co.jp
+                                        <input type="hidden" id="email" name="email" value="example@email.co.jp" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">パスワード <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        ＊＊＊＊＊＊＊＊
+                                        <input type="hidden" id="email" name="email" value="＊＊＊＊＊＊＊＊" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">氏名 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        山田花子
+                                        <input type="hidden" id="email" name="email" value="山田花子" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">ふりがな <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        やまだはなこ
+                                        <input type="hidden" id="email" name="email" value="やまだはなこ" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">生年月日 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        1990年1月1日
+                                        <input type="hidden" id="email" name="email" value="1990/1/1" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">性別 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        女性
+                                        <input type="hidden" id="email" name="email" value="女性" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">郵便番号 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        1040033
+                                        <input type="hidden" id="email" name="email" value="1040033" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">住所 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        東京都 中央区<br>
+                                        新川2-22-1<br>
+                                        いちご新川ビル5
+                                        <input type="hidden" id="email" name="email" value="東京都 中央区<br>新川2-22-1<br>いちご新川ビル5" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">電話番号 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        09012345678
+                                        <input type="hidden" id="email" name="email" value="09012345678" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">現在の就業状況 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        就業中
+                                        <input type="hidden" id="email" name="email" value="就業中" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">希望勤務形態 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        正社員、契約社員
+                                        <input type="hidden" id="email" name="email" value="正社員、契約社員" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lable col-12 col-md-5">
+                                        <label class="lbl" for="email">希望職種 <span class="label-required text-danger">（必須）</span></label>
+                                    </div>
+                                    <div class="col-text col-12 col-md-7">
+                                        医師、薬剤師、診療放射線技師
+                                        <input type="hidden" id="email" name="email" value="医師、薬剤師、診療放射線技師" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center" id="login">
+                            <button type="submit" class="btn btn-secondary-action mb-6 fs-14">修正する</button>
+                            <button type="submit" class="btn btn-primary-submit mb-6 fs-14 lh-24">この内容で登録完了</button>
+                        </div>
+                    </form>
+                    <p class="fs-14 lh-24 pb-7">確認メールが「迷惑メール」フォルダに振り分けられる可能性がございます。登録したにも関わらずメールの届かない方は、念のため、「迷惑メール」フォルダの確認をお願い致します。迷惑メール対策をしている方は、「@test.co.jp」からのメールを受けとれるように設定をしてください。</p>
+                </div>
+            </div>
+            <!-- Support Description-->
+            <div class="container pb-10 pt-5-custom">
+                <h2 class="heading-support text-center">
+                    <span>会員登録する3つのメリット</span>
+                </h2>
+                <div class="row">
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/support.svg" alt="support"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">アドバイザーの徹底サポート</h3>
+                            <p class="card-item-description">キャリアアドバイザーが、Zoom等でご希望の案件に合わせて選考対策をサポートします。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/jobs.svg" alt="jobs"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">希望に合った求人が届く</h3>
+                            <p class="card-item-description">希望の職種・エリアなどを登録いただければ条件にあった新着求人をメールでお送りします。</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-4">
+                        <div class="card card-item">
+                            <div class="card-item-icon text-center mb-2-custom">
+                                <span><img src="static/img/icons/registered.svg" alt="registered"/></span>
+                            </div>
+                            <h3 class="card-item-title text-center">会員限定機能が利用できる</h3>
+                            <p class="card-item-description">気になる機能や履歴書・職務経歴書作成機能、職場の環境の閲覧など会員限定機能が利用できます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End main -->
+    <!-- Footer -->
+    <footer class="footer pt-5 pb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-12">
+                    <div class="card shadow border-0 mb-4">
+                        <div class="card-body px-5">
+                            <h3 class="card-title mb-0">ご利用にお困りの方はこちら</h3>
+                            <button type="button" class="btn btn-secondary mt-2 d-flex w-100 justify-content-center">ヘルプ・お問い合わせ</button>
+                        </div>
+                    </div>
+                    <div class="navbar-logo mb-3">
+                        <a class="navbar-brand" href="#">
+                            <span class="navbar-brand-lbl">医療系・介護系のお仕事なら</span>
+                            <button type="button" class="btn">Logo</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12 ml-auto">
+                    <ul class="list-unstyled list-items d-flex mb-5">
+                        <li class="list-item list-item-first">サービスについて</li>
+                        <li class="list-item">
+                            <p class="mb-1">ご利用ガイド ヘルプ・お問い合わせ</p>
+                            <p class="mb-0">私たちのミッション 利用者のお声 お知らせ</p>
+                        </li>
+                    </ul>
+                    <ul class="list-unstyled list-items d-flex mb-3">
+                        <li class="list-item list-item-first">運営会社情報</li>
+                        <li class="list-item">
+                            <p class="mb-1">運営会社</p>
+                            <p class="mb-1">DYM転職（第二新卒・既卒・フリーターのための転職サイト）</p>
+                            <p class="mb-0">DYMテック（エンジニア向け転職サイト）</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12">
+                    <p class="copyright mb-0">Copyright &copy; 2022 DYM All Rights Reserved.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End footer -->
+
+    <!-- Script -->
+    <script src="static/js/app.min.js"></script>
+
+    <!-- ScrollTop -->
+    <a href="#" id="scrollTop" class="scroll" style="display: none;">
+        <img src="static/img/icons/arrow-up.svg" />
+    </a>
+</body>
+
+</html>

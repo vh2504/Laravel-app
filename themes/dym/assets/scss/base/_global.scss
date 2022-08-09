@@ -1,0 +1,44 @@
+body
+{
+    font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin: 0;
+
+    text-align: left;
+
+    color: $black-text;
+    background-color: #f8f9fe;
+}
+
+.main-content {
+    min-height: calc(100vh - 400px);
+}
+
+.fa-bars-m {
+    font-size: 32px;
+    color: $black-text;
+}
+
+.btn-neutral.btn-documentation{
+  color: #2dce89;
+}
+
+.bg-login {
+    background: url($pathImage + 'background/bg-login.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.bg-reset {
+    //background: url($pathImage + 'background/bg-reset.jpg') no-repeat;
+    background-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+.text-small {
+    font-size: 12px;
+}

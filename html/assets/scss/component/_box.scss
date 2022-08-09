@@ -1,0 +1,16 @@
+.box {
+    &-header {
+        min-height: 160px;
+        display: flex;
+        align-items: center;
+    }
+}
+.box-white {
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+.box-white-shadow {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 1px 5px rgba(1, 156, 206, 0.25);
+}

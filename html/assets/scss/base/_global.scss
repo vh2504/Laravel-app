@@ -1,0 +1,103 @@
+body
+{
+    font-family: 'Hiragino Kaku Gothic Pro', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+
+    margin: 0;
+
+    text-align: left;
+
+    color: $black-text;
+    background-color: #f8f9fe;
+}
+
+.main-content {
+    min-height: calc(100vh - 400px);
+}
+
+.fa-bars-m {
+    font-size: 32px;
+    color: $black-text;
+}
+
+.btn-neutral.btn-documentation{
+  color: #2dce89;
+}
+
+.bg-login {
+    //background: url($pathImage + 'background/bg-login.jpg') no-repeat;
+    background-size: 100%;
+}
+
+.bg-reset {
+    //background: url($pathImage + 'background/bg-reset.jpg') no-repeat;
+    background-size: 100%;
+}
+
+img {
+    max-width: 100%;
+}
+.text-small {
+    font-size: 12px;
+}
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    margin-bottom: 40px;
+    list-style: none;
+    background-color: $white;
+    @include border-radius(0);
+}
+.pd-32 {
+    padding: 32px;
+}
+.mb-24 {
+    margin-bottom: 24px;
+}
+.mb-14 {
+    margin-bottom: 14px;
+}
+.white-shadow-blue {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 6px rgba(1, 156, 206, 0.25);
+}
+
+.white-shadow-blue-bottom {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 3px rgba(1, 156, 206, 0.25);
+}
+.br-4 {
+    border-radius: 4px;
+}
+.br-8 {
+    border-radius: 8px;
+}
+.br-16 {
+    border-radius: 16px;
+}
+
+.text-primary {
+    color: $primary-red!important;
+}
+.text-b {
+    font-weight: 600!important;
+}
+.text-secondary {
+    color: $primaryColor!important;
+}
+.row-mr-s {
+    margin-left: -8px;
+    margin-right: -8px;
+}
+.pd-8 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.mb-8 {
+    margin-bottom: 3rem;
+}

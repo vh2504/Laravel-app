@@ -1,0 +1,23 @@
+.select2-container--default {
+  .select2-selection--multiple {
+    .select2-selection__choice {
+      color: #525f7f !important;
+      background-color: #0bf;
+      border-color: #0bf;
+    }
+
+    .select2-selection__choice__display {
+      margin-left: 20px !important;
+      color: #fff;
+    }
+
+    .select2-selection__choice__remove {
+      color: #fff;
+    }
+  }
+}
+
+.station-item {
+  overflow: hidden;
+  max-height: 66px;
+}
